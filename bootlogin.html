@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootlog.css">
+    </head>
+    <script>
+        function login(){
+            console.log("calling login function")
+            let email=document.getElementById("email")
+            let password=document.getElementById("password")
+            if(email.value==''){
+                console.log("Please Enter Email")
+                return
+            }
+            if(password.value==''){
+                console.log("Please Enter Password")
+                return
+            }
+            let registerDataString=localStorage.getItem("save")
+            console.log(registerDataString)
+            console.log(registerDataString.email)
+            console.log(registerDataString.password)
+
+            let registerData=JSON.parse(registerDataString)
+            console.log(registerData)
+            console.log(registerData.email)
+            console.log(registerData.password)
+            
+            let loginMessage=document.getElementById("loginMessage")
+            loginMessage.innerHTML=''
+            if(email.value==registerData.email && password.value==registerData.password){
+                console.log("Login Success")
+                loginMessage.innerHtml='Login Success'
+                loginMessage.style.color='green'
+                window.location.href='home.html' //navigate from one page to another page -->important
+                sessionStorage.setItem("username",registerData.firstName)
+                console.log(sessionStorage.getItem("username"))
+            }
+            else{
+                console.log("Invalid email or password")
+                loginMessage.innerHtml="invalid email or password"
+                loginMessage.style.color='red'
+            }
+        }
+    </script>
+    <body>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label>Enter Email</label>
+                <input type="email" name="email" id="email"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Enter Password</label>
+                <input type="password" name="password" id="password"  class="form-control">
+            </div>
+            <span id="loginMessage"></span>
+            <button type="button" onclick="login()" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+    </body>
+</html>

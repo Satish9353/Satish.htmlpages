@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function ClickMe(){
+        console.log("calling the click button")
+       }
+
+       function ClickMe1(){
+        console.log("calling the click doublebutton")
+       }
+
+       function ClickMe2(){
+        console.log("calling the click mouseover")
+       }
+
+       function ananymos(){
+        console.log("calling ananymous function")
+        var first=document.getElementById("firstname")
+        console.log(first)
+        //containt
+        console.log(first.value)
+       }
+    </script>
+
+<body>
+   
+    <button onclick="ClickMe()">Click Me</button>
+    <button ondblclick="ClickMe1()">Click Me</button>
+    <button onmouseover="ClickMe2()">Click Me</button>
+
+
+   
+    <form>
+        <label>Enter Lastname</label>
+        <input type="text" name="Lastname" id="Lastname">
+        <button type="button" onclick="ananymos()">click</button>
+        
+    </form>
+</body>
+</html>

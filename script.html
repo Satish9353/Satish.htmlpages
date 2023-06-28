@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <script>
+        console.log("introduction of JS")
+        var a
+        console.log(a)
+        console.log(typeof(a))
+        var b=10
+        console.log(typeof(b))
+        b=true
+        console.log( (typeof(b)))
+        b='j'
+        console.log(b)
+        console.log(typeof(b))
+
+        //dynamic
+        //to display in html page using js
+        document.write("we r learning js")
+
+        //to display heading using js
+        document.write("<h1>we r learning js</h1>")
+
+        //datatypes in js
+        //number-int.float.decimal
+        //String-string,literal.char
+        //boolean-true,false
+        //undefined-   
+        
+
+        //how to declared a function in js
+        //keyword functionname(){
+
+       // }
+       display()
+       function display(){
+        console.log("we r creating fun")
+        return "value"
+       }
+       //calling method name/fun name
+      
+       console.log(display)
+       console.log(display())
+
+       console.log(c)//before initialize the value
+       var c=10
+       console.log(c)//after initialize the value
+
+       //how to create a argument
+
+       function add(a,b){
+        console.log("calling add function")
+        console.log(a)
+        console.log(b)
+        return a+b
+
+       }
+       console.log(add(10,20))
+       console.log(add('10','20'))
+
+       function ClickMe(){
+        console.log("calling the click button")
+       }
+
+       function ClickMe(){
+        console.log("calling the click doublebutton")
+       }
+
+       function ClickMe(){
+        console.log("calling the click mouseover")
+       }
+
+       function ananymos(){
+        console.log("calling ananymous function")
+        var first=document.getElementById("firstname")
+        console.log(first)
+        //containt
+        console.log(first.value)
+       }
+    </script>
+</head>
+<body>
+    <!--mouse event-->
+    <button onclick="ClickMe()">Click Me</button>
+    <button ondblclick="ClickMe()">Click Me</button>
+    <!--<button ondblclick="ClickMe()" onclick="ClickMe()">Click Me</button>-->
+    <button onmouseover="ClickMe()">Click Me</button>
+
+
+    <!--form-->
+    <form>
+        <label>Enter fisrtname</label>
+        <input type="text" name="firstname" id="firstname">
+        <button type="button" onclick="ananymos()">click</button>
+        
+    </form>
+
+    <!-- how to call function from html page-->
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<script>
+    function login(){
+        console.log("calling the function")
+        var email =document.getElementById("emailid")
+        var passo = document.getElementById("password") 
+        if(email.value == ''){
+            console.log("enter email")
+            return
+        }
+        if(passo.value == ''){
+            console.log("enter password")
+            return
+        }
+        var registerDataString = localStorage.getItem("save")
+        console.log(registerDataString)
+        console.log(registerDataString.email)
+        console.log(registerDataString.passo)
+
+        var registerData = JSON.parse(registerDataString)
+        console.log(registerData)
+        console.log(registerData.email)
+        console.log(registerData.passo)
+
+        var loginMessage = document.getElementById("loginMessage")
+        loginMessage.innerHTML = ''
+
+        
+
+        if(email.value == registerData.email&& passo.value==registerData.passo ){
+            console.log("login sucessful")
+            loginMessage.innerHTML = 'login sucess'
+            loginMessage.style.color = 'green'
+            window.location.href = 'home.html'
+            console.log(registerData.name)
+            sessionStorage.setItem("username",registerData.name)
+            console.log(sessionStorage.getItem("username"))
+        }else{
+            console.log("invalide mail or password")
+            loginMessage.innerHTML = 'invalide mail or password'
+            loginMessage.style.color='red'
+        }
+
+        }
+    
+</script>
+<body>
+    <form>
+        <div>
+            <label>enter the emailId</label>
+            <input type="email" name="emailid" id="emailid">
+        </div>
+        <div>
+            <label>enter the password</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <button type="button" onclick="login()">Submit</button>
+        <span id="loginMessage"></span>
+    </form>
+</body>
+</html>

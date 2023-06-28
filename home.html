@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+<body>
+    <h1>welcome <span id="user"></span></h1>
+    <script>
+        var username = sessionStorage.getItem("username")
+        console.log(username)
+
+        var loggedinuser = document.getElementById("user")
+        console.log(loggedinuser)
+        loggedinuser.innerHTML = username
+
+        //js popop boxes
+
+        alert("welcome to home page")
+        confirm("are you sure you have completed the task")
+        prompt("what is your name")
+
+        //array
+
+        let arr = [1,2,3]
+        console.log(arr)
+
+        let arr1 = [1,2,'java','javascript',true]
+        console.log(arr1)
+
+        let arr2 = []
+        //add the data
+        
+        arr2.push(10)
+        console.log(arr2)
+        arr2.push(15)
+        console.log(arr2)
+
+        //remove the data
+        arr2.pop()
+        console.log(arr2)
+        
+        var a=[4,5,6]
+        var a =[]
+        console.log[a]
+
+        let arr3 =[]
+        arr3.unshift(60)// add element from begining of an array
+        console.log(arr3)
+        arr3.unshift(90)
+        console.log(arr3)    
+        arr3.unshift(120)
+        console.log(arr3)
+        
+        arr3.shift()//remove element from begining of an array
+        console.log(arr3)
+
+
+        //diff between var and let
+        //diff between (==) and (===)
+
+        //adding an object to array 
+
+        let trees = []
+        let tree1 = {
+            "name" :"mango",
+            "lifespan" : "50"
+        }
+         trees.push(tree1)
+         console.log(trees)
+
+        let tree2 = {  
+            "name" :"banayan",
+            "lifespan":"100"
+
+}
+        trees.push(tree2)
+        for(let i=0;i<trees.length;i++){
+            console.log(trees[i])
+        } 
+        for(let i=0;i<trees.length;i++){
+            console.log([i].lifespan)
+        } 
+        
+        let x=1
+        let y = 1
+        console.log(x==y)
+        console.log(x===y)
+
+        let z = 1
+        let b = "1"
+        console.log(z==b)
+        console.log(z===b)
+    </script>
+</body>
+</html>

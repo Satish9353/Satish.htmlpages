@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form validation</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="boot.css">
+        <script>
+            function register(){
+                console.log("calling register function")
+                var firstName=document.getElementById("firstName")
+                console.log(firstName)
+                console.log(firstName.value)
+                var firstNameMessage=document.getElementById("firstNameMessage")
+                firstNameMessage.innerHTML=''
+                if(firstName.value==''){
+                   // var firstNameMessage=document.getElementById("firstNameMessage")
+                    firstNameMessage.innerHTML='Please Enter FirstName'
+                    firstNameMessage.style.color='red'
+                    return
+                }
+
+                var lastName=document.getElementById("lastName")
+                console.log(lastName)
+                console.log(lastName.value)
+                var lastNameMessage=document.getElementById("lastNameMessage")
+                lastNameMessage.innerHTML=''
+                if(lastName.value==''){
+                    //var lastNameMessage=document.getElementById("lastNameMessage")
+                    lastNameMessage.innerHTML='Please Enter LastName'
+                    lastNameMessage.style.color='red'
+                    return
+                }
+
+                let email=document.getElementById("email")
+                let emailMessage=document.getElementById("emailMessage")
+                emailMessage.innerHTML=''
+                if(email.value==''){
+                    //let emailMessage=document.getElementById("emailMessage")
+                    emailMessage.innerHTML='Please Enter EmailId'
+                    emailMessage.style.color='red'
+                    return
+                }
+
+                if(email.value.length < 8){
+                    let emailMessage=document.getElementById("emailMessage")
+                    emailMessage.innerHTML='EmaiId should be more than 8 chracters'
+                    emailMessage.style.color='red' 
+                    return
+                }
+
+                let password=document.getElementById("password")
+                let passwordMessage=document.getElementById("passwordMessage")
+                passwordMessage.innerHTML=''
+                if(password.value==''){
+                    //let passwordMessage=document.getElementById("passwordMessage")
+                    passwordMessage.innerHTML='Please Enter Password'
+                    passwordMessage.style.color='red'
+                    return
+                }
+
+                var gender=document.registeration.gender
+                console.log(gender)
+                console.log(gender[0])
+                console.log(gender[1])
+                console.log(gender[2])
+            //checked
+                var genderMessage=document.getElementById("genderMessage")
+                genderMessage.innerHTML=''
+                if(gender[0].checked==false && gender[1].checked==false && gender[2].checked==false){
+                    console.log("gender is not selected")
+                    genderMessage.innerHTML='Please select Gender'
+                    genderMessage.style.color='red'
+                    return
+                }
+
+                var city=document.registeration.city
+                console.log(city)
+                console.log(city.value)
+                var cityMessage=document.getElementById("cityMessage")
+                cityMessage.innerHTML=''
+                if(city.value=="0"){
+                    console.log("Please select city")
+                    cityMessage.innerHTML='Please select city'
+                    cityMessage.style.color='red'
+                    return
+                }
+
+                //saving this form  data browser
+                var genderData
+                if(gender[0].checked==true){
+                    genderData=gender[0].value
+                }
+                else if(gender[1].checked==true){
+                    genderData=gender[1].value
+                }
+                else if(gender[2].checked==true){
+                    genderData=gender[2].value
+                }
+                
+                console.log(firstName.value)
+                console.log(lastName.value)
+                console.log(email.value)
+                console.log(password.value)
+                console.log(genderData)
+                console.log(city.value)
+
+                //To store the data we use storage. 
+                //Two types of storage----> 1)localstorage 2)sessionstorage
+
+                //localstorage it is an object to store data in browser
+                //local
+
+                localStorage.setItem("java","javascript")
+                var localdata=localStorage.getItem("java")
+                console.log(localdata)
+                
+                //how to create object in javascript  --> {}
+                var registerData={
+                    "firstName":firstName.value,
+                    "lastName":lastName.value,
+                    "email":email.value,
+                    "password":password.value,
+                    "gender":gender.value,
+                    "city":city.value
+                }
+                console.log(registerData)
+                console.log(typeof(registerData))
+                //convert object to string
+                var registerDataString=JSON.stringify(registerData)
+                console.log(typeof(registerDataString))
+
+                let registerArray = []
+                let existingData = localStorage.getItem("save")
+
+                if(existingData != null){
+                    registerArray.push(existingData)
+                }
+                registerArray.push(registerDataString)
+                localStorage.setItem("save",registerDataString)
+                console.log(registerArray)
+                localStorage.setItem("save",registerArray)
+
+                
+
+            }
+        </script>
+    </head>
+    <body>
+
+    <div class="container">
+        <form name="registeration">
+            <div class="form-group">
+                <label>Enter First Name</label>
+                <input type="text" name="firstName" id="firstName" class="form-control">
+                <div id="firstNameMessage"></div>
+            </div>
+            <div class="form-group">
+                <label>Enter Last Name</label>
+                <input type="text" name="lastName" id="lastName" class="form-control">
+                <span id="lastNameMessage"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Enter EmailId</label>
+                <input type="email" name="email" id="email" class="form-control">
+                <span id="emailMessage"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Enter Password</label>
+                <input type="password" name="password" id="password" class="form-control">
+                <span id="passwordMessage"></span>
+            </div>
+
+            <!--document.formname.controlname-->
+            <div class="form-group">
+                <label>Select Gender</label>
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+                <input type="radio" name="gender" value="others">Others
+                <span id="genderMessage"></span>
+            </div>
+        
+            <div class="form-group">
+                <label>Select City</label>
+                <select name="city" class="form-control">
+                    <option value="0">--select city--</option>
+                    <option>Bangalore</option>
+                    <option>Mysore</option>
+                    <option>Udupi</option>
+                </select>
+                <span id="cityMessage"></span>
+            </div>
+
+            <div>
+                <button type="button" onclick="register()" class="btn btn-primary">Register</button>
+            </div>
+            
+        </form>
+    </div>
+    </body>
+</html>
