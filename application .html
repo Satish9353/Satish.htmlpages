@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Form </title>
 </head>
+<style>
+    h1{
+        color: red;
+    }
+    body{
+        border: 2px solid black;
+        background-color: skyblue;
+        
+    }
+</style>
+<center>
 <body>
     <form>
+        <h1>Registration From</h1>
     <div>
        <th><label>First name:-</label></th>
        <td><input type="text"></td>
@@ -50,7 +62,15 @@
         <td><input type="text"></td>
     </div>
     <br>
-    <div>
+    <th><label>Select State</label></th>
+        <td><select>
+            <option>--Select State--</option>
+            <option>Karnataka</option>
+            <option>Maharashtra</option>
+            <option>Andra_Pradesh</option>
+            <option>Gujarat</option>
+        </select></td>
+ 
         <th><label>Select city</label></th>
         <td><select>
             <option>--select city--</option>
@@ -60,8 +80,9 @@
             <option>Yadgiri</option>
             <option>Bagalkote</option>
         </select></td>
-    </div>
-    <br>
+   
+       <br>
+       <br> 
     <div>
         <th><label>File</label></th>
         <td><input type="file"></td>
@@ -70,12 +91,13 @@
     <div>
         <th><label>Submit</label></th>
         <td><input type="submit"></td>
-        <br>
-        <br>
+      
         <th><label>Reset</label></th>
         <td><input type="reset"></td>
     </div>
     </form>
     
 </body>
+</center>
+
 </html>
